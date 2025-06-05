@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Genesis官网入口 - 免费学术资源和电子书下载平台</title>
+    <meta name="keywords" content="Library Genesis，学术资源下载，免费电子书，学术论文，资源共享">
+    <meta name="description" content="Library Genesis是一个基于文件共享的影子图书馆网站，为全球用户提供免费的学术资源和电子书下载服务，涵盖多个学科领域。">
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+        tailwind.config = { darkMode: `class` }
+    </script>
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="./icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <script>
+        // 自定义Tailwind配置
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#E50914', // 红色主色调
+                        secondary: '#FF6B6B', // 浅红色辅助色
+                        neutral: {
+                            100: '#F8F9FA',
+                            200: '#E9ECEF',
+                            700: '#343A40',
+                            800: '#212529',
+                            900: '#121212'
+                        }
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+            .hover-scale {
+                transition: transform 0.3s ease;
+            }
+            .hover-scale:hover {
+                transform: scale(1.03);
+            }
+            .feature-card {
+                @apply bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+            }
+            .icon-bg {
+                @apply bg-primary/10 dark:bg-primary/20 p-3 rounded-lg mr-4;
+            }
+            .resource-card {
+                @apply bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1;
+            }
+            .user-card {
+                @apply bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md transition-all duration-300 hover:shadow-lg;
+            }
+            .user-icon {
+                @apply w-16 h-16 rounded-full overflow-hidden shadow-md mb-4;
+            }
+        }
+    </style>
+</head>
+
+<body class="min-h-screen font-inter bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
+    <div class="container mx-auto px-4 py-8 max-w-7xl">
+
+        <!-- 导航栏 -->
+        <nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-gray-800/90 backdrop-blur-md shadow-sm transition-all duration-300" id="navbar">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between h-16">
+                    <div class="flex items-center">
+                        <a href="#" class="flex-shrink-0 flex items-center">
+                            <span class="text-primary font-bold text-xl">LibGen</span>
+                        </a>
+                        <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+                            <a href="#about" class="border-b-2 border-primary px-1 pt-1 text-sm font-medium text-primary">网站介绍</a>
+                            <a href="#features" class="border-transparent hover:border-primary px-1 pt-1 text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-primary">功能特点</a>
+                            <a href="#steps" class="border-transparent hover:border-primary px-1 pt-1 text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-primary">使用步骤</a>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <button class="ml-4 block sm:hidden p-2 rounded-md text-gray-500 dark:text-gray-400 hover:text-primary hover:bg-gray-100 dark:hover:bg-gray-700" id="mobile-menu-button">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 移动端菜单 -->
+            <div class="sm:hidden hidden" id="mobile-menu">
+                <div class="pt-2 pb-3 space-y-1 px-4">
+                    <a href="#about" class="bg-primary/5 border-l-4 border-primary text-primary block pl-3 pr-4 py-2 text-base font-medium">网站介绍</a>
+                    <a href="#features" class="border-l-4 border-transparent hover:border-primary hover:bg-primary/5 text-gray-600 dark:text-gray-300 hover:text-primary block pl-3 pr-4 py-2 text-base font-medium">功能特点</a>
+                    <a href="#steps" class="border-l-4 border-transparent hover:border-primary hover:bg-primary/5 text-gray-600 dark:text-gray-300 hover:text-primary block pl-3 pr-4 py-2 text-base font-medium">使用步骤</a>
+                </div>
+            </div>
+        </nav>
+
+        <header class="relative bg-gradient-to-r from-primary to-secondary text-white py-16 md:py-24 pt-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="text-center">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4 text-shadow">LibGen</h1>
+                    <p class="text-xl md:text-2xl max-w-3xl mx-auto opacity-90">免费学术资源和电子书下载平台。</p>
+                    <div class="mt-8 flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-6">
+                        <a class="bg-white text-primary hover:bg-gray-100 hover:scale-105 transition-transform font-medium py-3 px-6 rounded-lg shadow-lg"
+                            href="https://www.xxsnav.com/sites/17472.html" target="_blank">
+                            访问官网
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="absolute inset-0 bg-black opacity-10"></div>
+        </header>
+
+        <!-- 增加隔离空间 -->
+        <div class="h-5 md:h-10"></div>
+
+        <!-- 网站介绍部分 -->
+        <section id="about" class="mb-16 fade-in" style="animation-delay: 0.4s">
+            <h2 class="text-2xl font-bold mb-8 flex items-center">
+                网站介绍
+            </h2>
+            <div class="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg">
+                <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                    Library Genesis（简称LibGen）是一个基于文件共享的影子图书馆网站，旨在为全球用户提供免费的学术资源和电子书下载服务。该平台由一群图书馆员于1999年创立，汇集了海量的学术论文、书籍、漫画、杂志和有声书等资源，涵盖了自然科学、社会科学、人文科学、工程技术等多个领域。LibGen的资源丰富多样，几乎每天都在更新，确保用户能够获取到最新的学术成果。尽管LibGen在版权问题上存在一定争议，但其广泛的用途和免费的服务让许多用户受益匪浅。
+                </p>
+            </div>
+        </section>
+
+        <!-- 功能特点部分 -->
+        <section id="features" class="mb-16">
+            <h2 class="text-2xl font-bold mb-8">功能特点</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="feature-card">
+                    <h3 class="text-xl font-semibold mb-4">丰富的资源库</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        LibGen拥有超过240万本书籍和8000万篇科学文章，涵盖多个学科领域。这些资源几乎每天都在更新，确保用户能够获取到最新的学术成果。用户可以通过标题、作者、ISBN等多种方式进行搜索，方便快捷地找到所需的资料。
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="text-xl font-semibold mb-4">多种下载格式支持</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        LibGen提供了多种下载格式，包括PDF、EPUB、MOBI和TXT等，用户可以根据自己的阅读设备或偏好选择合适的格式。此外，网站还支持种子文件下载，用户可以通过BitTorrent协议获取资源，这种方式不仅节省带宽，还能提高下载速度。
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="text-xl font-semibold mb-4">用户友好的界面</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        LibGen的界面设计简洁明了，用户可以通过导航栏快速找到所需的功能，如搜索、下载、上传和论坛讨论等。网站还提供了详细的书目信息和用户评论，帮助用户更好地了解书籍的内容和质量。
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="text-xl font-semibold mb-4">社区支持与资源共享</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        LibGen鼓励用户参与到项目中来，用户可以上传自己的文献资源，帮助丰富库中的内容。此外，网站还提供了有关如何有效搜索和使用库的指南，帮助用户更好地利用资源。
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="text-xl font-semibold mb-4">多语言支持</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        LibGen支持多种语言的书籍和资源，包括中文、英文、俄文、法文等，满足不同用户的需求。用户可以通过语言筛选功能，找到自己感兴趣的书籍和文章。
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="text-xl font-semibold mb-4">安全访问与隐私保护</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        为了确保用户的安全，LibGen提供了多种安全措施，如使用HTTPS加密连接、启用广告拦截器、安装防病毒软件等。用户还可以通过使用虚拟私人网络（VPN）来保护自己的隐私和数据安全。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 使用步骤部分 -->
+        <section id="steps" class="mb-16">
+            <h2 class="text-2xl font-bold mb-8">使用步骤</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="feature-card">
+                    <h3 class="text-xl font-semibold mb-4">选择镜像站点</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        由于LibGen的域名可能会不断变化，访问时需要寻找最新的可用镜像地址。用户可以访问 Library Genesis最新网址 获取最新的镜像站点。
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="text-xl font-semibold mb-4">搜索资源</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        在LibGen的搜索框中输入关键词，如书名、作者、ISBN等，点击搜索按钮。用户还可以通过选择不同的搜索选项，如“作者”“标题”“出版年份”等，来提高搜索的准确性。
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="text-xl font-semibold mb-4">查看搜索结果</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        搜索结果页面会列出相关的资源，包括书籍的ID号、作者、题目、出版社、出版日期、语言类型、文件大小和格式等信息。用户可以根据需要选择合适的资源进行下载。
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="text-xl font-semibold mb-4">选择下载链接</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        点击“Mirrors”中的任意数字项，进入下载页面。用户可以选择直接下载或通过种子文件下载。
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="text-xl font-semibold mb-4">下载资源</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        点击“GET”按钮，即可开始下载选定的资源。下载完成后，用户可以在本地设备上查看和使用这些资源。
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="text-xl font-semibold mb-4">使用资源</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        下载完成后，用户可以根据自己的需求使用这些资源。如果是电子书，可以在电子阅读器或相关软件中打开；如果是学术论文，可以用于研究和学习。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 注意事项部分 -->
+        <section id="notes" class="mb-16">
+            <h2 class="text-2xl font-bold mb-8">注意事项</h2>
+            <div class="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg">
+                <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                    法律风险：在大多数国家，下载受版权保护的材料属于侵犯版权行为。虽然个人用户因此被起诉的情况相对较少，但理论上存在法律风险。
+                </p>
+                <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                    安全风险：在寻找镜像站或点击一些非官方链接时，可能存在访问钓鱼网站或下载带有恶意软件的文件的风险。务必从可信的来源获取镜像链接，下载后使用杀毒软件扫描。
+                </p>
+                <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                    域名变化：LibGen的域名会不断变化，如果一个链接失效，需要重新寻找新的可用镜像。
+                </p>
+                <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                    网站体验：由于是免费服务且经常遭受攻击，LibGen网站的界面可能比较简陋，加载速度不稳定，且可能包含一些广告。
+                </p>
+            </div>
+        </section>
+
+        <!-- 页脚 -->
+        <footer class="bg-gray-100 dark:bg-gray-800 py-12 rounded-xl"> 
+                <div class="border-gray-700 text-center">
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">按Ctrl+D键组合加入你的浏览器收藏夹，后续持续更新最新网址</p><br>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">Copyright ©2025 LibGen</p>
+                </div>
+        </footer>
+
+    </div>
+
+    <script>
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md');
+                navbar.classList.remove('shadow-sm');
+            } else {
+                navbar.classList.remove('shadow-md');
+                navbar.classList.add('shadow-sm');
+            }
+        });
+
+        // 移动端菜单切换
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // 关闭移动端菜单
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
